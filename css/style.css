@@ -2,21 +2,121 @@
 
 html {
 font-family: 'Titillium Web', sans-serif;
+zoom:1.5;
 }
 
 
 body {
 padding: 0; 
 margin: 0;
-background-color: black;
 color: white;
 font-size: 10px;
+}
+
+
+#container{
+position: absolute;
+background-color:#333333;
+top:0;
+left:0;
+right:0;
+bottom:0;
+text-align: center;
+}
+
+
+
+#centerContainer{
+position: absolute;
+top:50%;
+left:50%;
+bottom:50%;
+right:50%;
+background-color: blue;
 
 }
 
-#canvasContainer {
-	height: 100%;
-	width: 100%;
-	top:0;
-	left:0;
+
+#canvasContainer{
+position: relative;
+top:-150px;
+left:-200px;
+}
+
+
+#instruction{
+position: absolute;
+font-size:8.5px;
+padding-top: 8.5px;
+top:-25px;
+left:0px;
+width:400px;
+height:25px;
+background-color: black;
+}
+
+#allowText{
+	position: absolute;
+	top:5px;
+	right:5px;
+	text-align: right;
+	font-size: 8px;
+	line-height: 8px;
+}
+
+#allowGraph{
+	position: relative;
+	border: 1px solid white;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.arrow{
+    font-size: 20px;
+    position: absolute;
+    top:45px;
+    left:25px;
+    text-align: left;
+}
+
+.blink_me {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {  
+    10% { opacity: 1.0; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    10% { opacity: 1.0; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    10% { opacity: 1.0; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1.0; }
+}
+
+
+#news{
+    position: absolute;
+    left:0px;
+    top:0px;
 }
