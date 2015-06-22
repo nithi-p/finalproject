@@ -16,7 +16,7 @@ font-size: 10px;
 
 #container{
 position: absolute;
-background-color:#333333;
+background-color:black;
 top:0;
 left:0;
 right:0;
@@ -48,10 +48,10 @@ left:-200px;
 position: absolute;
 font-size:8.5px;
 padding-top: 8.5px;
-top:-25px;
+top:-30px;
 left:0px;
 width:400px;
-height:25px;
+height:30px;
 background-color: black;
 }
 
@@ -64,7 +64,7 @@ background-color: black;
 	line-height: 8px;
 }
 
-#allowGraph{
+.bordershow{
 	position: relative;
 	border: 1px solid white;
 	padding-left: 5px;

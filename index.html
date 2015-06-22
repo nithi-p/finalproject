@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <script language="javascript" type="text/javascript" src="js/clmtrackr.js"></script>
     <script language="javascript" type="text/javascript" src="js/model_pca_20_svm.js"></script>
- 
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 
     <script language="javascript" type="text/javascript" src="js/p5.js"></script>
@@ -14,7 +14,7 @@
 
     <script language="javascript" type="text/javascript" src="js/p5.sound.js"></script> 
 
-<script language="javascript" type="text/javascript" src="js/sketch.js"></script> 
+    <script language="javascript" type="text/javascript" src="js/sketch.js"></script> 
 
 
 
@@ -24,9 +24,14 @@
 
   </head>
  <body>
+
+
           <div id="container">
-            <div class="arrow blink_me">&rarr;</div> 
-            <div id="allowText">PLEASE CLICK &nbsp;<span id='allowGraph' class='blink_me'>Allow</span>&nbsp; TO ACTIVATE YOUR WEBCAM</div>
+
+
+
+            <div id="arrowText" class="arrow blink_me">&rarr;</div> 
+            <div id="allowText">PLEASE CLICK &nbsp;<span id='allowGraph' class='bordershow blink_me'>Allow</span>&nbsp; TO ACTIVATE YOUR WEBCAM</div>
             <div id="centerContainer">
 
 
@@ -34,16 +39,19 @@
                 
                  <div id="canvasContainer">
 
-                 <div id="instruction">PRESS SPACE BAR TO PLAY AND PAUSE</div>
+                 <div id="instruction">PRESS &nbsp;<span class='bordershow'>SPACE BAR</span>&nbsp; TO PLAY AND PAUSE</div>
 
                  
                  </div>
 
 
             </div>
-         </div>
 
+       <!-- <input type="text" placeholder="TYPE SOMETHING" id="theInputBox"></input>
+                     <button id="mapButton">GO</button>
+         </div>-->
 
+                  
 
 
 

@@ -1,4 +1,76 @@
 
+
+
+var person = prompt("Please choose your background", "Obama");
+
+
+
+var news;
+
+//Define a global object to store the space data
+var videoObject;
+var myWidth = 400;
+var myHeight = 300;
+
+
+
+function getvdoData(searchTerm){
+  var mapURL = 'http://api.5min.com/search/';
+  var searchURL = mapURL + searchTerm + '/videos.json?auto_start=true&sort=relevance&width=400';
+  console.log(searchURL);
+
+
+  $.ajax({   // SET UP AJAX
+    url: searchURL,
+    type: 'GET',
+    dataType: 'json', //different API --> different dataType
+    error: function(data){
+      console.log("We got problems");
+      console.log(data);
+    },
+    success: function(data){
+      console.log("WooHoo!!!");
+      console.log(data);
+
+      videoObject = data.items[0].videoUrl;
+      console.log(videoObject);
+
+
+      news = createVideo([videoObject,""]);
+        
+       console.log(news);
+   
+       news.parent("canvasContainer");
+       news.size(myWidth,myHeight);
+       news.pause();
+       news.volume(0.02);
+       news.hide();
+
+    }
+
+
+  });
+}
+
+
+
+$(document).ready(function(){  //JQUERY TO CHECK IF HTML&CODE IS LOADED
+    getvdoData(person);  //Call the function to make the AJAX call
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var ctracker;
 
 var value;
@@ -16,8 +88,7 @@ var soundFile;
 var amplitude;
 var backgroundColor = 0;
 
-var myWidth = 400;
-var myHeight = 300;
+
 
 
 var level;
@@ -47,7 +118,7 @@ var beatDecayRate = 0.95; // how fast does beat cutoff decay?
 var framesSinceLastbeat = 0; // once this equals beatHoldFrames, beatCutoff starts to decay.
 
 var videoInput;
-// var news;
+
 var canvas2;
 
 
@@ -59,12 +130,20 @@ function preload() {
 
 function setup() {
 
+
+/*  input = createInput();
+  input.position(20, 65);
+
+  button = createButton('submit');
+  button.position(150, 65);
+  button.mousePressed(greet);*/
+
           
 
           // setup canvas
           canvas2 = createCanvas(myWidth,myHeight);
           canvas2.parent("canvasContainer");
-          backgroundColor = color(0,0,0,200);
+          backgroundColor = color(0,0,0,80);
 
 
   amplitude = new p5.Amplitude();
@@ -73,15 +152,6 @@ function setup() {
 
 
 
-/*  news = createVideo(["http://avideos.5min.com//164/5187164/518716385_2.mp4",""]);
-        
-
-   
-       news.parent("canvasContainer");
-       news.size(myWidth,myHeight);
-       news.loop();
-       news.hide();
-       news.volume(0);*/
 
        // videoInput = loadImage("http://media2.giphy.com/media/FiGiRei2ICzzG/200w_d.gif");
        // videoInput = createVideo(["http://avideos.5min.com//164/5187164/518716385_2.mp4",""]);
@@ -106,15 +176,12 @@ function setup() {
 
 
 
-
+        
 
 
 }
 
 function draw() {
-
-
-  rect(rect.x, rect.y, rect.width, rect.height);
 
 
 
@@ -131,12 +198,12 @@ function draw() {
 
 
 
-  // blendMode(HARD_LIGHT);
-  image(videoInput,0,0,myWidth,myHeight);
-  // image(news,0,0,windowWidth, windowHeight);
+   blendMode(DIFFERENCE);
+   image(videoInput,0,0,myWidth,myHeight);
+   image(news,-400,-300,myWidth*2,myHeight*2);
 
   
-  // blendMode(BLEND);
+   blendMode(BLEND);
 
 
 
@@ -151,7 +218,7 @@ function draw() {
   
 
     if (soundFile.isPlaying()){
-          fill(250,random(100),random(250),80);
+          fill(250,random(100),random(250),120);
           triangle(myWidth-20,myHeight-10,myWidth-20,myHeight-20,myWidth-10,myHeight-15);
     }
 
@@ -413,7 +480,7 @@ function detectBeat(level) {
 
 
 function onBeat() {
-  backgroundColor = color(random(0,5),0,random(0,5), random(180,220));
+  backgroundColor = color(random(0,5),0,random(0,5), random(150,180));
 }
 
 //  function windowResized() {
@@ -425,15 +492,6 @@ function onBeat() {
 
 function keyPressed() {
 
-  switch(keyCode) {
-  case LEFT_ARROW:
-    if (value === 1){
-          value = 0;
-    }else{
-          value = 1;
-    }
-    break;
-  }
 
 
 
@@ -441,13 +499,30 @@ function keyPressed() {
     
     if (soundFile.isPlaying()){
           soundFile.pause();
-          backgroundColor = color(0,0,0,200);
+          backgroundColor = color(0,0,0,80);
+          news.pause();
     }else{
           soundFile.play();
+          news.loop();
           //line(frameCount % width, 0, frameCount % width, height);          
     }
 
   }
 
-   return false;
 }
+
+
+setTimeout(function(){ 
+document.getElementById("allowText").style.visibility = "hidden";
+document.getElementById("arrowText").style.visibility = "hidden";
+ }, 12000);
+
+
+function greet() {
+  var name = input.value();
+  
+  getvdoData(name); 
+
+}
+
+
