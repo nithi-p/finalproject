@@ -1,0 +1,123 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web);
+
+html {
+font-family: 'Titillium Web', sans-serif;
+}
+
+body{
+    background: white;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+
+
+
+.centerContainer {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    bottom: 0px;
+    right:0px;
+}
+
+
+#snapCont{
+    position: relative;
+    width:600px;
+    height:450px;
+    top:-225px;
+    left:-400px;
+    background: red;
+
+}
+
+#photo{
+    width: 100%;
+}
+
+#photoURL{
+    visibility: hidden;
+    position: absolute;
+}
+
+
+
+#capt{
+    font-family: 'Titillium Web', sans-serif;
+    position: absolute;
+    top:-220px;
+    left:205px;
+    width: 210px;
+    height:150px;
+    color:black;
+
+
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0;
+    outline: 0;
+    padding: 7px;
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+    background-color: #e8eeef;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+
+
+
+}
+
+#capt:focus{
+    background: rgba(0,0,0,0.03);
+}
+
+
+#loginAndPost{
+    position: absolute;
+    top:-63px;
+    left:205px;
+    width: 200px;
+    padding:5px;
+    color: white;
+    background: #336699;
+    text-align: center;
+}
+
+#loginAndPost:hover{
+    background:black;
+}
+
+#poster{
+    position: absolute;
+    top:-20px;
+    left:205px;
+    width: 200px;
+    padding:5px;
+    color: white;
+    text-align: left;
+    font-size: 14px;
+    text-align: center;
+    background: #336699;
+    opacity: 0.5;
+        border-radius: 4px;
+}
+
+
+#fbicon{
+    position: relative;
+    margin-right: 10px;
+    top:3px;
+}
+
+#textPost{
+    text-align: center;
+}
